@@ -3,4 +3,5 @@ class Piece
     @piece = :piece
   end
 
+  
 end
