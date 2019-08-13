@@ -31,7 +31,7 @@ class Board
   def checkmate?(color)
     return false unless in_check?(color)
 
-    pieces.select { |p| p.color == color }.all? do |piece|16790-[]
+    pieces.select { |p| p.color == color }.all? do |piece|
       piece.valid_moves.empty?
     end
   end
