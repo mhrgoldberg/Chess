@@ -8,7 +8,7 @@ class Rook < Piece
     :rook
   end
 
-  def move_diffs
+  def move_dirs
     horizontal_and_vertical_dirs
   end
 
