@@ -9,7 +9,6 @@ class Board
 
   end
 
-
   def [](pos) 
     raise "invalid position" unless valid_pos?(pos)
     row, col = pos
@@ -22,16 +21,17 @@ class Board
     @rows[row][col] = val
   end
 
-  def move_piece!(start_pos, end_pos) 
+  def move_piece(start_pos, end_pos) 
     raise 'start position does not exist' unless valid_pos?(start_pos)
     raise 'end position does not exist' unless valid_pos?(end_pos)
     self[end_pos] = self[start_pos]
     self[start_pos] = @sentinel
   end
   
-  # def move_piece(start_pos, end_pos)
-
-  # end
+  def valid_pos?(color, pos)
+    valid_pos?(pos)
+    color != self[pos].color
+  end
 
   def valid_pos?(pos)
    pos.all?{ |i| i < 8 && i >= 0 }

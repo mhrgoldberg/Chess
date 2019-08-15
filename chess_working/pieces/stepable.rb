@@ -2,14 +2,10 @@ module Stepable
   
   def moves
     possible_moves = []
-    current_row, current_column = self.position
 
     move_diffs.each do |move_pos|
-      move_row, move_column = move_pos
-      new_row = current_row + move_row
-      new_column = current_column + move_column
-      new_pos = [new_row, new_column]
-      possible_moves << new_pos if self.board.valid_pos?(new_pos)
+      new_pos = [move_pos[0] + self.position[0], move_pos[1] + self.position[1]]
+      possible_moves << new_pos if self.board.valid_pos?(self.color, new_pos)
     end
     possible_moves
   end
@@ -19,4 +15,4 @@ module Stepable
     raise 'ovwerwritten by subclass'
   end
 
-end
+end 
