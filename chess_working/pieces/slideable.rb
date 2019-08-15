@@ -40,7 +40,9 @@ module Slideable
   def grow_unblocked_moves_in_dir(dx, dy)
     new_pos = [dx + self.position[0], dy + self.position[1]]
     directional_moves = []
-    self.board.valid_pos?(self.color, new_pos)
+    while self.board.valid_pos?(self.color, new_pos)
+      
+    end
     
   end
 
